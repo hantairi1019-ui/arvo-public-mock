@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MKTS Web — ARVO Mock</title>
+<style>
+:root{--bg:#f5f7fa;--panel:#fff;--text:#172033;--muted:#667085;--line:#e5e7eb;--accent:#2457d6;--accent2:#eef3ff;--ok:#18794e;--warn:#9a6700}
+[data-theme="dark"]{--bg:#101318;--panel:#171b22;--text:#edf1f7;--muted:#9aa4b2;--line:#2a303a;--accent:#7da2ff;--accent2:#202a40;--ok:#5bd39a;--warn:#e5bd62}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text)}
+button,input,select{font:inherit}button{cursor:pointer}.shell{display:flex;min-height:100vh}.side{width:238px;background:var(--panel);border-right:1px solid var(--line);padding:22px 14px;position:fixed;inset:0 auto 0 0}.brand{font-weight:800;font-size:20px;padding:0 12px 22px}.nav-section{font-size:11px;color:var(--muted);padding:14px 12px 6px;text-transform:uppercase;letter-spacing:.08em}.nav button{display:block;width:100%;border:0;background:none;color:var(--text);text-align:left;padding:10px 12px;border-radius:8px;margin:2px 0}.nav button:hover,.nav button.active{background:var(--accent2);color:var(--accent);font-weight:700}.main{margin-left:238px;width:calc(100% - 238px);padding:28px 34px}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}.top h1{margin:0;font-size:26px}.top p{margin:5px 0 0;color:var(--muted);font-size:13px}.actions{display:flex;gap:8px;align-items:center}.btn{border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:8px;padding:9px 13px}.btn.primary{background:var(--accent);border-color:var(--accent);color:white}.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:20px}.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px}.label{font-size:12px;color:var(--muted)}.value{font-size:25px;font-weight:750;margin-top:7px}.sub{font-size:12px;color:var(--muted);margin-top:6px}.grid{display:grid;grid-template-columns:1.4fr 1fr;gap:16px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden}.panel-head{padding:15px 17px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}.panel-head strong{font-size:14px}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:12px 14px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}th{color:var(--muted);font-weight:600;background:var(--panel)}tr:last-child td{border-bottom:0}.ok{color:var(--ok);font-weight:700}.warn{color:var(--warn);font-weight:700}.toolbar{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}.input{background:var(--panel);border:1px solid var(--line);color:var(--text);border-radius:8px;padding:9px 11px;min-width:210px}.badge{display:inline-block;padding:4px 8px;border-radius:999px;background:var(--accent2);color:var(--accent);font-size:11px;font-weight:700}.form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;padding:18px}.field label{display:block;font-size:12px;color:var(--muted);margin-bottom:6px}.field .input{width:100%}.field.full{grid-column:1/-1}.notice{margin:14px 18px;padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:var(--accent2);font-size:13px}.hidden{display:none}@media(max-width:900px){.side{width:190px}.main{margin-left:190px;width:calc(100% - 190px);padding:20px}.cards{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside class="side">
+  <div class="brand">MKTS Web</div>
+  <div class="nav-section">共通</div>
+  <nav class="nav" id="nav">
+    <button data-page="dashboard">ダッシュボード</button>
+    <button data-page="prices">株価一覧</button>
+    <button data-page="analysis">銘柄分析</button>
+    <button data-page="trades">売買・保有管理</button>
+    <button data-page="earnings">決算データ</button>
+    <button data-page="schedule">決算発表スケジュール</button>
+    <button data-page="candidates">候補銘柄</button>
+    <button data-page="allstocks">全銘柄データ</button>
+  </nav>
+  <div class="nav-section">管理者</div>
+  <nav class="nav">
+    <button data-page="imports">CSV Import</button>
+    <button data-page="admin">管理画面</button>
+  </nav>
+</aside>
+<main class="main">
+  <div class="top">
+    <div><h1 id="title">ダッシュボード</h1><p id="desc">銘柄分析・保有状況・データ更新状況</p></div>
+    <div class="actions"><button class="btn" id="theme">Dark</button><button class="btn">user@example.com</button></div>
+  </div>
+  <section id="content"></section>
+</main>
+</div>
+<script>
+const data={
+prices:[["7203","トヨタ自動車","東証PRM","3,120","+1.25%"],["6501","日立製作所","東証PRM","4,218","-0.64%"],["4063","信越化学工業","東証PRM","5,840","+0.91%"]],
+analysis:[["7203","トヨタ自動車","1.02","11.4","9.8%","82","A"],["6501","日立製作所","2.10","18.2","12.1%","76","A"],["4063","信越化学工業","2.35","21.1","10.5%","74","B"]],
+trades:[["7203","トヨタ自動車","200","3,050","3,120","+14,000円"],["6501","日立製作所","100","4,100","4,218","+11,800円"]],
+candidates:[["1928","積水ハウス","2026年度","候補"],["4063","信越化学工業","2026年度","候補"],["6501","日立製作所","2025年度","候補"]]
+};
+const meta={
+dashboard:["ダッシュボード","銘柄分析・保有状況・データ更新状況"],prices:["株価一覧","株価APIサービスから取得した株価を参照"],analysis:["銘柄分析","ユーザー単位の銘柄評価・分析情報"],trades:["売買・保有管理","購入・保有・売却情報を管理"],earnings:["決算データ","決算情報を手入力・編集"],schedule:["決算発表スケジュール","JPX CSV Import済みデータを参照"],candidates:["候補銘柄","年度別の候補銘柄を参照"],allstocks:["全銘柄データ","共通銘柄マスタを参照"],imports:["CSV Import","管理者向け共通データImport"],admin:["管理画面","ユーザー・権限・API・Import状態"]};
+function table(headers,rows){return '<div class="panel"><div class="table-wrap"><table><thead><tr>'+headers.map(x=>'<th>'+x+'</th>').join('')+'</tr></thead><tbody>'+rows.map(r=>'<tr>'+r.map((x,i)=>'<td>'+(i===r.length-1 && (x==='A'||x==='B'||x==='候補')?'<span class="badge">'+x+'</span>':x)+'</td>').join('')+'</tr>').join('')+'</tbody></table></div></div>'}
+function render(page){
+document.getElementById("title").textContent=meta[page][0];document.getElementById("desc").textContent=meta[page][1];
+document.querySelectorAll(".nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===page));
+let c="";
+if(page==="dashboard") c='<div class="cards"><div class="card"><div class="label">株価API</div><div class="value ok">正常</div><div class="sub">最終成功 17:12</div></div><div class="card"><div class="label">決算予定</div><div class="value">5件</div><div class="sub">今後7日間</div></div><div class="card"><div class="label">保有銘柄</div><div class="value">12銘柄</div><div class="sub">現在の保有状況</div></div><div class="card"><div class="label">Import状態</div><div class="value ok">最新</div><div class="sub">2026/09/30</div></div></div><div class="grid"><div class="panel"><div class="panel-head"><strong>最近の更新</strong></div><table><tbody><tr><td>2026/10/05</td><td>株価APIサービス データ更新</td><td class="ok">正常</td></tr><tr><td>2026/09/30</td><td>JPX 決算発表スケジュール Import</td><td class="ok">正常</td></tr><tr><td>2026/06/30</td><td>全銘柄データ Import</td><td class="ok">正常</td></tr></tbody></table></div><div class="panel"><div class="panel-head"><strong>システム境界</strong></div><div class="notice">MKTS Web → 株価APIサービス → J-Quants API</div><div class="notice">株価APIサービスは別システムです。MKTS WebからJ-Quants APIへ直接アクセスしません。</div></div></div>';
+if(page==="prices") c='<div class="toolbar"><input class="input" placeholder="コード / 銘柄名で検索"><button class="btn">絞り込み</button><span class="badge">API正常</span></div><div class="panel"><div class="panel-head"><strong>データ基準日 2026/10/05</strong><span class="label">最終成功 17:12</span></div>'+table(["コード","銘柄名","市場","現在値","前日比"],data.prices)+'</div>';
+if(page==="analysis") c='<div class="toolbar"><input class="input" placeholder="コード / 銘柄名で検索"><select class="input"><option>全ランク</option><option>A</option><option>B</option></select></div>'+table(["コード","銘柄名","PBR","PER","ROE","点数","ランク"],data.analysis);
+if(page==="trades") c='<div class="toolbar"><button class="btn primary">新規登録</button><select class="input"><option>保有中</option><option>売却済み</option></select></div>'+table(["コード","銘柄名","保有数量","平均買値","現在値","評価損益"],data.trades)+'<div class="notice">詳細画面では初期購入、ナンピン、売却、目標売値等を管理します。</div>';
+if(page==="earnings") c='<div class="panel"><div class="panel-head"><strong>決算データ入力</strong><div><button class="btn">キャンセル</button> <button class="btn primary">保存</button></div></div><div class="form">'+["コード","銘柄名","決算期","今期年間EPS","次期予想EPS","予想配当","予想経常利益","BPS","年初来安値","5DMA","決算発表日"].map(x=>'<div class="field"><label>'+x+'</label><input class="input" placeholder="'+x+'"></div>').join('')+'<div class="field full"><label>備考</label><input class="input" placeholder="備考"></div></div></div>';
+if(page==="schedule") c='<div class="toolbar"><input class="input" placeholder="コード / 銘柄名 / 決算期"><button class="btn">検索</button><span class="badge">JPX CSV Import済み</span></div>'+table(["発表予定日","コード","銘柄名","市場","決算期"],[["2026/10/08","7203","トヨタ自動車","東証PRM","2027/03"],["2026/10/09","6501","日立製作所","東証PRM","2027/03"]]);
+if(page==="candidates") c='<div class="toolbar"><select class="input"><option>2026年度</option><option>2025年度</option></select></div>'+table(["コード","銘柄名","登録年度","状態"],data.candidates);
+if(page==="allstocks") c='<div class="toolbar"><input class="input" placeholder="コード / 銘柄名"><button class="btn">検索</button></div>'+table(["コード","銘柄名","市場","現在値","PBR","配当利回り"],[["7203","トヨタ自動車","東証PRM","3,120","1.02","2.9%"],["6501","日立製作所","東証PRM","4,218","2.10","1.6%"],["4063","信越化学工業","東証PRM","5,840","2.35","1.9%"]]);
+if(page==="imports") c='<div class="cards"><div class="card"><div class="label">全銘柄データ</div><div class="value">CSV</div><div class="sub">SBI証券・年次</div></div><div class="card"><div class="label">候補銘柄</div><div class="value">CSV</div><div class="sub">SBI証券・年次</div></div><div class="card"><div class="label">決算発表スケジュール</div><div class="value">CSV</div><div class="sub">JPX・四半期</div></div><div class="card"><div class="label">株価一覧</div><div class="value">API</div><div class="sub">CSV Import対象外</div></div></div><div class="panel"><div class="panel-head"><strong>Import履歴</strong><button class="btn primary">CSVを選択</button></div>'+table(["実行日時","対象","実行者","件数","結果"],[["2026/09/30 18:10","JPX 決算発表スケジュール","admin@example.com","4,958","正常"],["2026/06/30 18:04","SBI 全銘柄データ","admin@example.com","1,526","正常"]])+'</div>';
+if(page==="admin") c='<div class="cards"><div class="card"><div class="label">ユーザー</div><div class="value">8</div><div class="sub">一般 7 / 管理者 1</div></div><div class="card"><div class="label">株価API</div><div class="value ok">正常</div><div class="sub">最終成功 17:12</div></div><div class="card"><div class="label">Import</div><div class="value ok">正常</div><div class="sub">直近エラーなし</div></div></div><div class="grid"><div class="panel"><div class="panel-head"><strong>ユーザー</strong></div>'+table(["ユーザー","ロール","状態"],[["user@example.com","一般ユーザー","有効"],["admin@example.com","管理者","有効"]])+'</div><div class="panel"><div class="panel-head"><strong>運用状態</strong></div><div class="notice">株価APIサービス: <b class="ok">正常</b></div><div class="notice">直近Import: <b class="ok">正常</b></div></div></div>';
+document.getElementById("content").innerHTML=c;
+}
+document.querySelectorAll(".nav button").forEach(b=>b.addEventListener("click",()=>render(b.dataset.page)));
+document.getElementById("theme").addEventListener("click",()=>{const dark=document.documentElement.dataset.theme==="dark";document.documentElement.dataset.theme=dark?"":"dark";document.getElementById("theme").textContent=dark?"Dark":"Light"});
+render("dashboard");
+</script>
+</body>
+</html>
