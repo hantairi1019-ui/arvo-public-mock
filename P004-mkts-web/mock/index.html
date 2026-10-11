@@ -88,7 +88,7 @@ function filterAnalysis(){const filter=document.getElementById("buyFilter")?.val
 
 function analysisField(label,id,isComputed=false,type="number"){return '<div class="field"><label for="'+id+'">'+label+'</label><input class="input" id="'+id+'" type="'+type+'"'+(isComputed?' value="自動計算" readonly':' placeholder="入力"')+'></div>'}
 function renderAnalysisDetail(){
-const years=[2025,2026,2027,2028,2029];
+const years=[2025,2026,2027];
 const epsCols=[["1Q EPS（予）","q1eps"],["1Q EPS増減","q1change"],["2Q EPS（予）","q2eps"],["2Q EPS増減","q2change"],["3Q EPS（予）","q3eps"],["3Q EPS増減","q3change"],["年度末EPS（確）","yearEnd"],["当期EPS増減","currentChange"],["次年度EPS（予）","nextYear"],["次期EPS増減","nextChange"]];
 const epsRows=years.map(y=>'<tr><th>'+y+'年</th>'+epsCols.map((x,i)=>'<td>'+analysisField(x[0],y+'_'+x[1],false,'number').replace('<div class="field">','<div class="field eps-cell">').replace('<label>','<label class="eps-label">')+'</td>').join('')+'</tr>').join('');
 const annual='<div class="panel"><div class="panel-head"><strong>年度別EPS入力</strong><span class="subtle">各年度の項目を横並びで入力</span></div><div class="table-wrap"><table class="eps-entry-table"><thead><tr><th>年度</th>'+epsCols.map(x=>'<th>'+x[0]+'</th>').join('')+'</tr></thead><tbody>'+epsRows+'</tbody></table></div><div class="notice">2025年以降の年度を一覧で入力します。表示する年度は必要に応じて追加します。</div></div>';
