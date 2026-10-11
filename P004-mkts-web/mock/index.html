@@ -28,7 +28,6 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}.shell{display:f
 <button data-page="trades">売買・保有管理</button>
 <button data-page="schedule">決算発表スケジュール</button>
 <button data-page="candidates">候補銘柄</button>
-<button data-page="allstocks">全銘柄データ</button>
 </nav>
 <div class="nav-section">管理者</div>
 <nav class="nav">
@@ -52,7 +51,7 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}.shell{display:f
 <script>
 const data={
 users:[["user@example.com","一般ユーザー","有効"],["admin@example.com","管理者","有効"]],
-imports:[["2026/09/30 18:10","JPX 決算発表スケジュール","admin@example.com","4,958","正常"],["2026/06/30 18:04","SBI 全銘柄データ","admin@example.com","1,526","正常"],["2026/06/30 18:02","SBI 候補銘柄","admin@example.com","318","正常"]],
+imports:[["2026/09/30 18:10","JPX 決算発表スケジュール","admin@example.com","4,958","正常"],["2026/06/30 18:02","SBI 候補銘柄","admin@example.com","318","正常"]],
 prices:[["7203","トヨタ自動車","東証PRM","3,120","+1.25%","2026/10/05 17:12"],["6501","日立製作所","東証PRM","4,218","-0.64%","2026/10/05 17:12"],["4063","信越化学工業","東証PRM","5,840","+0.91%","2026/10/05 17:12"]],
 analysis:[
 ["7203","トヨタ自動車","2027/03","2026/10/01","1.00","15.0","8.0%","8.0%","10.0%","2.00","8","S","5,890","6,240","-5.6%","2026/12/10","","買い！"],
@@ -64,7 +63,6 @@ trades:[
 ["6501","日立製作所","100","4,100","4,218","4,100","4,510","4,305","11,800円","勝ち"]
 ],
 candidates:[["1928","積水ハウス","2026年度","候補","東証PRM","3,850","3.1%","4,200"],["4063","信越化学工業","2026年度","候補","東証PRM","5,840","1.9%","2,500"],["6501","日立製作所","2025年度","候補","東証PRM","4,218","1.6%","3,900"]],
-allstocks:[["7203","トヨタ自動車","東証PRM","3,120","+1.25%","1.00","2.9%","3,120","36.2%","125%","12,500,000","3"],["6501","日立製作所","東証PRM","4,218","-0.64%","2.10","1.6%","2,009","31.0%","142%","9,800,000","3"],["4063","信越化学工業","東証PRM","5,840","+0.91%","2.35","1.9%","2,485","82.0%","180%","15,400,000","3"]]
 };
 const meta={
 dashboard:["ダッシュボード","資金状況・保有状況・更新状況"],
@@ -74,7 +72,6 @@ analysis:["銘柄分析","EPS推移、財務指標、評価点、ランク、売
 trades:["売買・保有管理","初期購入、5段階ナンピン、売却、損益を管理"],
 schedule:["決算発表スケジュール","JPX CSV Import済みデータを参照"],
 candidates:["候補銘柄","毎年6月にSBI CSVをImportして更新"],
-allstocks:["全銘柄データ","SBI CSV由来の共通銘柄マスタ"],
 imports:["CSV Import","管理者向けデータImport。株価CSVは対象外"],
 history:["Import履歴・エラー","Import実行履歴とエラー状況"],
 admin:["ユーザー管理","ユーザーとロールを管理"],
@@ -102,8 +99,7 @@ if(page==="analysis")c='<div class="notice">Excelで「基本（入力、貼り�
 if(page==="trades")c='<div class="notice">購入・売却・配当・手数料など、Excelで「基本（入力、貼り付け）」と記載されている取引項目はユーザーが手入力します。ナンピン価格・数量は自動計算し、購入状況を銘柄明細で更新します。</div><div class="toolbar"><button class="btn primary" id="newTrade">新規登録</button><select class="input"><option>保有中</option><option>売却済み</option></select></div>'+table(["コード","銘柄名","保有数量","平均買値","ナンピン購入状況","現在値","評価損益"],data.trades.map(r=>{const n=(averagingState[r[0]]||[]).filter(Boolean).length;const i=data.trades.indexOf(r);return ["<button class=\"detail-link\" onclick=\"showTradeDetail("+i+")\">"+r[0]+"</button>","<button class=\"detail-link\" onclick=\"showTradeDetail("+i+")\">"+r[1]+"</button>",r[2],r[3],badge(n+" / 5 購入済み",n?"ok":""),r[4],r[8]];}))+'<div class="subtle">銘柄を選ぶと、明細画面で5段階の購入状況を確認・更新できます。</div>';
 if(page==="schedule")c='<div class="toolbar"><input class="input" placeholder="コード / 銘柄名 / 決算期"><button class="btn">検索</button>'+badge("JPX CSV Import済み")+'</div>'+table(["コード","会社名","発表予定日","決算期末","業種","種別","市場区分"],[["7203","トヨタ自動車","2026/10/08","2027/03","輸送用機器","本決算","プライム"],["6501","日立製作所","2026/10/09","2027/03","電気機器","2Q","プライム"]]);
 if(page==="candidates")c='<div class="notice">候補銘柄は毎年6月にSBI証券「銘柄スクリーナー」CSVをImportして更新します。Web上でスクリーニング条件を再現する機能は設けません。</div><div class="toolbar"><select class="input"><option>2026年度</option><option>2025年度</option></select><button class="btn primary" id="newCandidate">候補登録</button></div>'+table(["コード","銘柄名","年度","状態","市場","現在値","配当利回り","BPS"],data.candidates.map(r=>[detailLink(r[0],r[0],"candidates"),detailLink(r[0],r[1],"candidates"),r[2],r[3],r[4],r[5],r[6],r[7]]));
-if(page==="allstocks")c='<div class="toolbar"><input class="input" placeholder="コード / 銘柄名"><button class="btn">検索</button></div>'+table(["コード","銘柄名","市場","現在値","前日比","PBR","配当利回り","BPS","自己資本比率","当座比率","平均売買代金(千円)","決算月"],data.allstocks.map(r=>[detailLink(r[0],r[0],"allstocks"),detailLink(r[0],r[1],"allstocks"),r[2],r[3],r[4],r[5],r[6],r[7],r[8],r[9],r[10],r[11]]));
-if(page==="imports")c='<div class="cards">'+[['全銘柄データ','SBI CSV','年1回'],['候補銘柄','SBI CSV','年1回（6月）'],['決算発表スケジュール','JPX CSV','四半期'],['株価一覧','API','CSV対象外']].map(x=>'<div class="card"><div class="label">'+x[0]+'</div><div class="value">'+x[1]+'</div><div class="sub">'+x[2]+'</div></div>').join('')+'</div><div class="panel"><div class="panel-head"><strong>CSV Import</strong><button class="btn primary" id="openImport">CSVを選択</button></div><div class="notice">Import対象は全銘柄データ、候補銘柄、決算発表スケジュールです。株価は株価APIサービスから取得するためCSV Importしません。</div>'+table(["実行日時","対象","実行者","件数","結果"],data.imports)+'</div>';
+if(page==="imports")c='<div class="cards">'+[['候補銘柄','SBI CSV','年1回（6月）'],['決算発表スケジュール','JPX CSV','四半期'],['株価一覧','API','CSV対象外']].map(x=>'<div class="card"><div class="label">'+x[0]+'</div><div class="value">'+x[1]+'</div><div class="sub">'+x[2]+'</div></div>').join('')+'</div><div class="panel"><div class="panel-head"><strong>CSV Import</strong><button class="btn primary" id="openImport">CSVを選択</button></div><div class="notice">Import対象は候補銘柄と決算発表スケジュールです。株価は株価APIサービスから取得するためCSV Importしません。</div>'+table(["実行日時","対象","実行者","件数","結果"],data.imports)+'</div>';
 if(page==="history")c=table(["実行日時","対象","実行者","件数","結果"],data.imports)+ '<div class="panel"><div class="panel-head"><strong>エラー</strong></div><div class="notice">現在、未解決エラーはありません。</div></div>';
 if(page==="admin")c='<div class="toolbar"><button class="btn primary" id="newUser">ユーザー追加</button></div>'+table(["ユーザー","ロール","状態"],data.users)+'<div class="panel"><div class="panel-head"><strong>権限</strong></div><div class="notice">一般ユーザー: 閲覧と自身の分析・売買データ編集。</div><div class="notice">管理者: ユーザー管理、CSV Import、API取得状況、システム設定。</div></div>';
 if(page==="api")c='<div class="cards">'+[['接続先','株価APIサービス','正常'],['最終成功','2026/10/05 17:12',''],['取得状態','正常',''],['J-Quants API','別システム経由','直接接続なし']].map(x=>'<div class="card"><div class="label">'+x[0]+'</div><div class="value '+(x[2]==="正常"?"ok":"")+'">'+x[1]+'</div><div class="sub">'+x[2]+'</div></div>').join('')+'</div><div class="panel"><div class="panel-head"><strong>API取得状況</strong></div>'+table(["項目","状態","備考"],[["認証","正常","株価APIサービスとの認証"],["取得","正常","現在値・前日比"],["更新日時","正常","取得時点を保持"],["障害時","監視対象","詳細なリトライ仕様は未確定"]])+'</div>';
@@ -121,7 +117,7 @@ let body="";
 if(type==="trade")body='<div class="modal-form">'+field("銘柄コード","code","7203")+field("銘柄名","name","トヨタ自動車")+field("購入時期","date","2026-10-05","date")+field("初期買値","buy","3050","number")+field("初期数量","qty","100","number")+field("売却時期","sellDate","")+field("売値","sellPrice","")+field("売却数量","sellQty","")+field("中間配当","midDiv","")+field("年度末配当","yearDiv","")+field("手数料","fee","")+'</div>';
 if(type==="candidate")body='<div class="modal-form">'+field("銘柄コード","code","7203")+field("銘柄名","name","トヨタ自動車")+field("登録年度","year","2026年度")+field("状態","status","候補")+'</div>';
 if(type==="user")body='<div class="modal-form">'+field("メールアドレス","email","user@example.com","email")+'<div class="field"><label>ロール</label><select class="input" name="role"><option>一般ユーザー</option><option>管理者</option></select></div></div>';
-if(type==="import")body='<div class="modal-form"><div class="field full"><label>対象データ</label><select class="input" name="target"><option>JPX 決算発表スケジュール</option><option>SBI 全銘柄データ</option><option>SBI 候補銘柄</option></select></div><div class="field full"><label>CSVファイル</label><input class="input" type="file" name="file" accept=".csv"></div></div>';
+if(type==="import")body='<div class="modal-form"><div class="field full"><label>対象データ</label><select class="input" name="target"><option>JPX 決算発表スケジュール</option><option>SBI 候補銘柄</option></select></div><div class="field full"><label>CSVファイル</label><input class="input" type="file" name="file" accept=".csv"></div></div>';
 body+='<div class="modal-actions"><button class="btn" id="modalCancel">キャンセル</button><button class="btn primary" id="modalSave">登録</button></div>';
 document.getElementById("modalTitle").textContent=titles[type];document.getElementById("modalBody").innerHTML=body;document.getElementById("modalBackdrop").classList.add("visible");
 document.getElementById("modalCancel").onclick=closeModal;document.getElementById("modalSave").onclick=()=>saveModal(type);
@@ -135,7 +131,7 @@ if(type==="user"){const email=value("email");if(!email)return;data.users.push([e
 if(type==="import"){const target=value("target"),file=document.querySelector('#modalBody [name="file"]');if(!file||!file.files.length)return;data.imports.unshift([new Date().toLocaleString("ja-JP"),target,"admin@example.com","-", "正常"]);closeModal();render("imports")}
 }
 document.getElementById("modalClose").onclick=closeModal;document.getElementById("modalBackdrop").addEventListener("click",e=>{if(e.target.id==="modalBackdrop")closeModal()});document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal()});
-document.querySelectorAll(".nav button").forEach(b=>{const short={dashboard:"DB",prices:"株",detail:"詳",analysis:"分",trades:"売",schedule:"予",candidates:"候",allstocks:"全",imports:"CSV",history:"履",admin:"管",api:"API",settings:"設"}[b.dataset.page];b.dataset.short=short||"";b.title=b.textContent.trim();b.addEventListener("click",()=>{render(b.dataset.page);if(window.matchMedia("(max-width:900px)").matches){document.getElementById("sidebar").classList.remove("mobile-open");document.getElementById("mobileBackdrop").classList.remove("visible")}})});
+document.querySelectorAll(".nav button").forEach(b=>{const short={dashboard:"DB",prices:"株",detail:"詳",analysis:"分",trades:"売",schedule:"予",candidates:"候",imports:"CSV",history:"履",admin:"管",api:"API",settings:"設"}[b.dataset.page];b.dataset.short=short||"";b.title=b.textContent.trim();b.addEventListener("click",()=>{render(b.dataset.page);if(window.matchMedia("(max-width:900px)").matches){document.getElementById("sidebar").classList.remove("mobile-open");document.getElementById("mobileBackdrop").classList.remove("visible")}})});
 document.getElementById("sidebarToggle").addEventListener("click",()=>{const shell=document.querySelector(".shell"),collapsed=shell.classList.toggle("sidebar-collapsed"),toggle=document.getElementById("sidebarToggle");document.getElementById("sidebar").classList.toggle("collapsed",collapsed);toggle.setAttribute("aria-label",collapsed?"メニューを展開":"メニューを折りたたむ");toggle.setAttribute("title",collapsed?"メニューを展開":"メニューを折りたたむ");toggle.setAttribute("aria-expanded",String(!collapsed));toggle.innerHTML=collapsed?'<svg aria-hidden="true" viewBox="0 0 20 20" width="18" height="18"><path d="m7.5 3.5 6.5 6.5-6.5 6.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>':'<svg aria-hidden="true" viewBox="0 0 20 20" width="18" height="18"><path d="m12.5 3.5-6.5 6.5 6.5 6.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'});
 document.getElementById("mobileMenu").addEventListener("click",()=>{document.getElementById("sidebar").classList.add("mobile-open");document.getElementById("mobileBackdrop").classList.add("visible")});document.getElementById("mobileBackdrop").addEventListener("click",()=>{document.getElementById("sidebar").classList.remove("mobile-open");document.getElementById("mobileBackdrop").classList.remove("visible")});
 document.getElementById("theme").addEventListener("click",()=>{const dark=document.documentElement.dataset.theme==="dark";document.documentElement.dataset.theme=dark?"":"dark";document.getElementById("theme").textContent=dark?"Dark":"Light"});
