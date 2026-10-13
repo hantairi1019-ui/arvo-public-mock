@@ -160,7 +160,7 @@ if(deadline){const today=new Date();today.setHours(0,0,0,0);if(today>deadline)ex
 const deviation=targetBuy!==null&&targetBuy!==0&&currentPrice!==null?currentPrice/targetBuy-1:null;
 return {fiveDma,bps,forecast,dividend,annualLow,pbr,per,roe,yieldRate,payout,lowMultiple,previousProfit,currentProfit,profitChange,currentPrice,scoreConditions,totalScore,rank,targetBuy,mKts,deadlineLabel,exitSignal,buySignal,deviation};
 }
-function conditionPanel(title,conditions,sign){return '<div class="panel"><div class="panel-head"><strong>'+title+'</strong></div>'+table(["判定条件","結果","点数"],conditions.map(c=>[c.name,c.passed===null?"未登録":c.passed?'<span class="ok">該当</span>':"非該当",c.passed===null?"—":c.passed?(sign==="+"?"+1":"−1"):"0"]))+'</div>';}
+function conditionPanel(title,conditions,sign){const formulas=[["PBR","5DMA ÷ BPS"],["PER","5DMA ÷ 予想EPS"],["ROE","予想EPS ÷ BPS"],["配当利回り","予想配当 ÷ 5DMA"],["配当性向","予想配当 ÷ 予想EPS"],["年初来安値上昇倍率","5DMA ÷ 年初来安値"]];return '<div class="panel"><div class="panel-head"><strong>'+title+'</strong></div>'+table(["判定条件","判定式（指標計算式＋しきい値）","結果","点数"],conditions.map(c=>{const formula=formulas.find(([name])=>c.name.startsWith(name))?.[1]||"—";const operator=c.op==="le"?"≤":"≥";const threshold=c.name.match(/[0-9]+(?:\.[0-9]+)?倍?%?/)?.[0]||"—";return [c.name,formula+' '+operator+' '+threshold,c.passed===null?"未登録":c.passed?'<span class="ok">該当</span>':"非該当",c.passed===null?"—":c.passed?(sign==="+"?"+1":"−1"):"0"];}))+'</div>';}
 function analysisComputedSections(){
 const c=getAnalysisCalculations(),plus=c.scoreConditions.filter(x=>x.sign==="+"),minus=c.scoreConditions.filter(x=>x.sign==="-");
 const result=(name,value)=>'<span data-analysis-result="'+name+'">'+escapeAnalysisText(value)+'</span>';
