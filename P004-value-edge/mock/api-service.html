@@ -65,7 +65,8 @@ form.addEventListener("submit",async event=>{
  if(!apiKey){showStatus("APIキーを入力してください。","error");return;}
  if(!/^\d{4,5}$/.test(code)){showStatus("銘柄コードは4桁または5桁で入力してください。","error");return;}
  if(from>to){showStatus("取得開始日は終了日以前の日付にしてください。","error");return;}
- if(!["localhost","127.0.0.1"].includes(location.hostname)){showStatus("この公開ページからJ-Quants APIへ直接接続できません。画面に表示される手順でローカルサーバーを起動してください。APIキーは送信されていません。","error");return;}\n const url=new URL("/api/daily",location.origin);url.searchParams.set("code",code);url.searchParams.set("from",from);url.searchParams.set("to",to);
+ if(!["localhost","127.0.0.1"].includes(location.hostname)){showStatus("この公開ページからJ-Quants APIへ直接接続できません。画面に表示される手順でローカルサーバーを起動してください。APIキーは送信されていません。","error");return;}
+ const url=new URL("/api/daily",location.origin);url.searchParams.set("code",code);url.searchParams.set("from",from);url.searchParams.set("to",to);
  runButton.disabled=true;runButton.textContent="取得中…";showStatus("J-Quants API V2へリクエストしています。","info");
  const started=performance.now();
  try{
