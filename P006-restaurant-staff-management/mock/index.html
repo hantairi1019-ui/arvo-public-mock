@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>P006 飲食店スタッフ管理 | 操作可能モック</title>
+<style>
+:root{--ink:#172033;--muted:#667085;--line:#e6eaf0;--bg:#f5f7fb;--primary:#3457d5;--nav:#172033;--green:#16794b;--amber:#a85b08;--red:#b42318;--card:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif;font-size:14px}button,input,select{font:inherit}button{cursor:pointer}.layout{min-height:100vh;display:flex}.sidebar{width:238px;background:var(--nav);color:#fff;padding:22px 14px;flex-shrink:0}.brand{font-size:19px;font-weight:800;padding:5px 10px 24px}.brand small{display:block;font-size:11px;color:#aab4c5;font-weight:500;margin-top:6px}.nav button{width:100%;border:0;border-radius:8px;background:transparent;color:#c7d0de;text-align:left;padding:12px;margin:3px 0}.nav button.active,.nav button:hover{background:#2b3850;color:#fff}.side-note{font-size:11px;line-height:1.7;color:#aab4c5;margin:30px 10px}.main{min-width:0;flex:1;padding:28px;max-width:1600px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:24px}.topbar h1{font-size:25px;margin:0}.subtitle{color:var(--muted);margin-top:6px}.store-picker{padding:10px 12px;border:1px solid var(--line);border-radius:9px;background:#fff}.page{display:none}.page.active{display:block}.grid{display:grid;gap:15px}.grid.four{grid-template-columns:repeat(4,minmax(0,1fr))}.grid.two{grid-template-columns:1.2fr .8fr}.card{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:18px;box-shadow:0 2px 5px #17203306;min-width:0}.card h2,.card h3{margin:0 0 15px;font-size:16px}.metric-label{font-size:12px;color:var(--muted)}.metric{font-size:28px;font-weight:800;margin:9px 0 5px}.metric-foot{font-size:12px;color:var(--muted)}.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:22px 0 12px}.section-head h2{font-size:17px;margin:0}.btn{border:0;background:var(--primary);color:#fff;border-radius:8px;padding:10px 13px;font-weight:700}.btn.secondary{background:#fff;border:1px solid var(--line);color:var(--ink)}.btn.soft{background:#eef2ff;color:#304bc2}.btn.danger{background:#fff0ef;color:var(--red)}.btn.small{padding:6px 9px;font-size:12px}.toolbar{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-bottom:14px}.toolbar input,.toolbar select,.field input,.field select{border:1px solid var(--line);border-radius:8px;padding:10px;background:#fff;min-width:0}.toolbar input{max-width:260px}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:11px;background:#fff}table{border-collapse:collapse;width:100%;min-width:650px}th,td{padding:12px 13px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}th{font-size:12px;color:var(--muted);font-weight:700;background:#fafbfe}tr:last-child td{border-bottom:0}.pill{display:inline-block;padding:4px 8px;border-radius:99px;background:#eef2ff;color:#344dc4;font-size:11px;font-weight:700}.pill.green{background:#e9f8ef;color:var(--green)}.pill.amber{background:#fff4e5;color:var(--amber)}.pill.red{background:#ffefee;color:var(--red)}.muted{color:var(--muted)}.notice{padding:12px 14px;background:#fff8e8;border:1px solid #f4dfb3;color:#7c4b06;border-radius:9px;line-height:1.6;margin-bottom:15px}.success{padding:10px 12px;background:#eaf8ef;color:#17653e;border-radius:8px;margin:10px 0;display:none}.schedule{display:grid;grid-template-columns:145px repeat(7,minmax(95px,1fr));min-width:820px}.schedule>div{padding:10px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-height:57px}.schedule .head{background:#f8f9fc;font-size:12px;font-weight:700;color:var(--muted)}.schedule .person{font-weight:700}.shift-cell{background:#fff}.shift-chip{border-radius:7px;background:#eaf0ff;color:#3048a8;padding:6px;font-size:12px;white-space:normal;line-height:1.4;cursor:pointer}.shift-chip:hover{outline:2px solid #aebdf8}.empty{color:#a0a7b4;font-size:12px}.mobile-preview{max-width:420px;margin:auto;background:#f8fafc;border:1px solid var(--line);border-radius:20px;padding:18px}.clock{font-size:32px;font-weight:800;margin:15px 0}.clock-btn{width:100%;padding:15px;margin:5px 0}.form-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.field label{display:block;font-size:12px;font-weight:700;color:var(--muted);margin-bottom:6px}.field input,.field select{width:100%}.field{min-width:0}.empty-state{padding:24px;text-align:center;color:var(--muted)}.footer-note{font-size:11px;line-height:1.7;color:var(--muted);margin-top:18px}.progress{height:7px;background:#edf0f5;border-radius:99px;overflow:hidden;margin-top:9px}.progress span{display:block;height:100%;background:var(--primary);width:72%}.hide{display:none!important}
+@media(max-width:1100px){.grid.four{grid-template-columns:repeat(2,minmax(0,1fr))}.grid.two{grid-template-columns:1fr}.main{padding:20px}}
+@media(max-width:720px){.layout{display:block}.sidebar{width:100%;padding:10px 12px}.brand{padding:6px 7px 10px}.brand small{display:inline;margin-left:8px}.nav{display:flex;overflow-x:auto;gap:5px}.nav button{white-space:nowrap;width:auto;min-width:max-content;padding:9px}.side-note{display:none}.main{padding:16px}.topbar{align-items:flex-start}.topbar h1{font-size:21px}.store-picker{max-width:130px}.grid.four{gap:9px}.card{padding:13px}.metric{font-size:23px}.form-grid{grid-template-columns:1fr}.section-head{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar">
+  <div class="brand">FOODSHIFT <small>P006 · STAFF PLATFORM</small></div>
+  <nav class="nav">
+    <button class="active" data-page="dashboard">▦　ダッシュボード</button>
+    <button data-page="shifts">▤　シフト管理</button>
+    <button data-page="attendance">◷　勤怠・打刻</button>
+    <button data-page="payroll">￥　給与計算</button>
+    <button data-page="staff">♙　スタッフ管理</button>
+    <button data-page="staffview">▣　スタッフ画面プレビュー</button>
+  </nav>
+  <div class="side-note">デモ環境<br>サンプルデータのみ使用しています。<br>実際の認証・給与計算・テナント分離は未実装です。</div>
+</aside>
+<main class="main">
+<header class="topbar">
+  <div><h1 id="page-title">ダッシュボード</h1><div class="subtitle" id="page-subtitle">店舗運営の状況をまとめて確認</div></div>
+  <select class="store-picker" id="store-picker" aria-label="店舗選択"><option>渋谷店</option><option>新宿店</option></select>
+</header>
+<div id="toast" class="success"></div>
+<section class="page active" id="page-dashboard">
+  <div class="notice"><b>プロトタイプ：</b>操作内容はこのブラウザのデモデータにのみ反映されます。給与額は参考値で、実際の給与支払には使用できません。</div>
+  <div class="grid four">
+    <div class="card"><div class="metric-label">本日の出勤予定</div><div class="metric" id="metric-scheduled">12人</div><div class="metric-foot">選択店舗のデモ値</div></div>
+    <div class="card"><div class="metric-label">出勤中</div><div class="metric" id="metric-clocked">8人</div><div class="metric-foot">打刻状況から更新</div></div>
+    <div class="card"><div class="metric-label">未承認の勤怠修正</div><div class="metric" id="metric-adjust">2件</div><div class="metric-foot">承認待ち</div></div>
+    <div class="card"><div class="metric-label">今月の給与概算</div><div class="metric" id="metric-pay">¥1,250,000</div><div class="metric-foot">確定前の参考値</div></div>
+  </div>
+  <div class="grid two" style="margin-top:16px">
+    <div class="card"><h2>シフト不足の時間帯</h2><div id="shortage-list"></div></div>
+    <div class="card"><h2>今日の対応事項</h2><div id="todo-list"></div></div>
+  </div>
+  <div class="section-head"><h2>スタッフの本日の状況</h2><button class="btn secondary" onclick="showPage('attendance')">勤怠管理へ →</button></div>
+  <div class="table-wrap"><table><thead><tr><th>スタッフ</th><th>勤務予定</th><th>状態</th><th>時給</th></tr></thead><tbody id="dashboard-staff"></tbody></table></div>
+</section>
+<section class="page" id="page-shifts">
+  <div class="notice">候補生成は希望・必要人数をもとにした簡易デモです。最適化や労務ルールの完全検証は行いません。確定前に店長が確認してください。</div>
+  <div class="toolbar"><button class="btn secondary" id="prev-week">← 前週</button><strong id="week-label">2026年10月19日〜25日</strong><button class="btn secondary" id="next-week">翌週 →</button><button class="btn soft" id="generate-shifts">✦ シフト候補を生成</button><button class="btn" id="publish-shifts">シフトを公開</button></div>
+  <div class="grid four" style="margin-bottom:15px">
+    <div class="card"><div class="metric-label">希望提出</div><div class="metric" id="wish-count">8/10</div></div>
+    <div class="card"><div class="metric-label">配置済みシフト</div><div class="metric" id="assignment-count">—</div></div>
+    <div class="card"><div class="metric-label">不足のある時間帯</div><div class="metric" id="shift-shortage">3</div></div>
+    <div class="card"><div class="metric-label">公開状態</div><div class="metric" id="publish-state">下書き</div></div>
+  </div>
+  <div class="card"><div class="section-head" style="margin-top:0"><h2>週間シフト表</h2><span class="muted">勤務枠をクリックすると時間を編集できます</span></div><div class="table-wrap" id="schedule-wrap"><div class="schedule" id="schedule-grid"></div></div></div>
+  <div class="section-head"><h2>必要人数（デモ）</h2><span class="muted">18:00〜20:00の不足人数を確認</span></div>
+  <div class="grid three" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+    <div class="card"><div class="metric-label">ランチ 11:00〜14:00</div><div class="metric">必要 4人 / 配置 4人</div><span class="pill green">充足</span></div>
+    <div class="card"><div class="metric-label">ディナー 18:00〜20:00</div><div class="metric">必要 6人 / 配置 4人</div><span class="pill amber">2人不足</span></div>
+    <div class="card"><div class="metric-label">クローズ 20:00〜22:00</div><div class="metric">必要 3人 / 配置 2人</div><span class="pill amber">1人不足</span></div>
+  </div>
+</section>
+<section class="page" id="page-attendance">
+  <div class="notice">出退勤時刻はこのモックではブラウザ時刻を使用します。実システムではサーバー時刻、認証、監査ログ、打刻方式の不正対策が必要です。</div>
+  <div class="grid four">
+    <div class="card"><div class="metric-label">出勤済み</div><div class="metric" id="att-clocked">8人</div></div>
+    <div class="card"><div class="metric-label">未出勤</div><div class="metric" id="att-missing">4人</div></div>
+    <div class="card"><div class="metric-label">修正申請</div><div class="metric" id="att-requests">2件</div></div>
+    <div class="card"><div class="metric-label">本日の実働時間</div><div class="metric" id="att-hours">—</div></div>
+  </div>
+  <div class="section-head"><h2>勤怠記録</h2><button class="btn secondary" id="add-adjustment">＋ 修正申請を追加</button></div>
+  <div class="table-wrap"><table><thead><tr><th>スタッフ</th><th>出勤</th><th>休憩</th><th>退勤</th><th>状態</th><th>操作</th></tr></thead><tbody id="attendance-table"></tbody></table></div>
+  <div class="section-head"><h2>勤怠修正申請</h2><span class="muted">承認・却下はデモ状態の変更です</span></div>
+  <div class="table-wrap"><table><thead><tr><th>スタッフ</th><th>申請内容</th><th>理由</th><th>状態</th><th>操作</th></tr></thead><tbody id="adjustment-table"></tbody></table></div>
+</section>
+<section class="page" id="page-payroll">
+  <div class="notice"><b>給与計算デモ：</b>以下は通常賃金と簡易な深夜割増の例示のみです。法定時間外・法定休日・変形労働時間制・端数処理・税や社会保険等を網羅していません。実給与の確定・支払判断には使用しないでください。</div>
+  <div class="toolbar"><label>対象月 <select id="pay-month"><option value="2026-10">2026年10月</option><option value="2026-09">2026年9月</option></select></label><button class="btn secondary" id="recalc-payroll">再計算</button><button class="btn" id="confirm-payroll">デモ給与を確認済みにする</button></div>
+  <div class="grid four">
+    <div class="card"><div class="metric-label">給与概算合計</div><div class="metric" id="pay-total">—</div></div>
+    <div class="card"><div class="metric-label">対象スタッフ</div><div class="metric" id="pay-people">—</div></div>
+    <div class="card"><div class="metric-label">通常勤務時間</div><div class="metric" id="pay-normal">—</div></div>
+    <div class="card"><div class="metric-label">深夜勤務時間（概算）</div><div class="metric" id="pay-night">—</div></div>
+  </div>
+  <div class="section-head"><h2>スタッフ別給与内訳（概算）</h2><button class="btn secondary" id="export-payroll">CSVを書き出す</button></div>
+  <div class="table-wrap"><table><thead><tr><th>スタッフ</th><th>時給</th><th>通常時間</th><th>深夜時間</th><th>通常賃金</th><th>深夜割増の例</th><th>概算合計</th></tr></thead><tbody id="payroll-table"></tbody></table></div>
+  <div class="footer-note">注意：本画面はプロトタイプのため、給与計算ロジック、法令適合、控除計算、給与明細としての適法性は保証しません。</div>
+</section>
+<section class="page" id="page-staff">
+  <div class="section-head" style="margin-top:0"><h2>スタッフ一覧</h2><button class="btn" id="add-staff">＋ スタッフを追加</button></div>
+  <div class="toolbar"><input id="staff-search" placeholder="名前・職種で検索"><select id="staff-filter"><option value="all">すべて</option><option value="active">在籍中</option><option value="inactive">退職・休職</option></select></div>
+  <div class="table-wrap"><table><thead><tr><th>氏名</th><th>職種</th><th>時給</th><th>勤務可能時間</th><th>状態</th><th>操作</th></tr></thead><tbody id="staff-table"></tbody></table></div>
+  <div class="card" style="margin-top:16px"><h2 id="staff-form-title">スタッフ登録・編集</h2><div class="form-grid">
+    <div class="field"><label for="staff-name">氏名</label><input id="staff-name" placeholder="例：田中 花子"></div>
+    <div class="field"><label for="staff-role">職種</label><select id="staff-role"><option>ホール</option><option>キッチン</option><option>レジ</option><option>店長</option></select></div>
+    <div class="field"><label for="staff-wage">時給（円）</label><input id="staff-wage" type="number" min="0" value="1200"></div>
+    <div class="field"><label for="staff-availability">勤務可能時間</label><input id="staff-availability" value="平日 17:00〜22:00"></div>
+    <div class="field"><label for="staff-status">状態</label><select id="staff-status"><option value="active">在籍中</option><option value="inactive">休職・退職</option></select></div>
+  </div><div style="display:flex;gap:8px;margin-top:14px"><button class="btn" id="save-staff">保存する</button><button class="btn secondary" id="cancel-staff">クリア</button></div><div class="footer-note">実システムでは個人情報の閲覧権限、雇用条件の適用期間、変更履歴を別途実装します。</div></div>
+</section>
+<section class="page" id="page-staffview">
+  <div class="notice">スタッフ画面のプレビューです。ログインや本人確認は行いません。</div>
+  <div class="mobile-preview">
+    <div style="display:flex;justify-content:space-between;align-items:center"><b>FOODSHIFT</b><span class="pill green">渋谷店</span></div>
+    <h2 style="margin:25px 0 5px">こんにちは、スタッフさん</h2><div class="muted">今日の勤務とシフトを確認しましょう。</div>
+    <div class="card" style="margin-top:18px"><div class="metric-label">本日の勤務予定</div><div style="font-size:24px;font-weight:800;margin:8px 0">17:00〜22:00</div><div class="muted">ホール · 渋谷店</div><button class="btn clock-btn" id="mobile-clock-in">出勤する</button><button class="btn secondary clock-btn" id="mobile-break">休憩を開始 / 終了</button><button class="btn secondary clock-btn" id="mobile-clock-out">退勤する</button><div class="footer-note" id="mobile-clock-state">本日の打刻状態：未出勤</div></div>
+    <div class="card" style="margin-top:14px"><h3>今週の確定シフト</h3><p>火 17:00〜22:00</p><p>木 17:00〜22:00</p><p>土 12:00〜22:00</p></div>
+    <div class="card" style="margin-top:14px"><h3>今月の勤務時間</h3><div class="metric">42時間30分</div><button class="btn secondary" style="width:100%">給与明細を見る（デモ）</button></div>
+  </div>
+</section>
+</main>
+</div>
+<script>
+const initialStaff=[
+{id:1,name:"佐藤 美咲",role:"ホール",wage:1200,availability:"平日 17:00〜22:00",status:"active",clockIn:"17:02",break:"未開始",clockOut:"—"},
+{id:2,name:"鈴木 健",role:"キッチン",wage:1300,availability:"火・木・土",status:"active",clockIn:"16:55",break:"未開始",clockOut:"—"},
+{id:3,name:"高橋 葵",role:"ホール",wage:1200,availability:"水・金・土",status:"active",clockIn:"—",break:"—",clockOut:"—"},
+{id:4,name:"田中 翔",role:"キッチン",wage:1350,availability:"週末中心",status:"active",clockIn:"17:10",break:"未開始",clockOut:"—"},
+{id:5,name:"伊藤 結衣",role:"レジ",wage:1180,availability:"平日 10:00〜16:00",status:"active",clockIn:"10:00",break:"終了",clockOut:"16:02"},
+{id:6,name:"渡辺 大地",role:"ホール",wage:1250,availability:"金・土・日",status:"active",clockIn:"—",break:"—",clockOut:"—"}
+];
+const defaultState={staff:initialStaff,adjustments:[{id:1,name:"佐藤 美咲",request:"退勤時刻 22:00 → 22:15",reason:"片付け対応",status:"未承認"},{id:2,name:"鈴木 健",request:"出勤時刻の修正",reason:"打刻忘れ",status:"未承認"}],shifts:{},published:false,weekOffset:0,confirmedPayroll:false,nextId:7};
+let state;try{state=JSON.parse(localStorage.getItem("foodshift-demo-state"))||structuredClone(defaultState)}catch(e){state=JSON.parse(JSON.stringify(defaultState))}
+function save(){localStorage.setItem("foodshift-demo-state",JSON.stringify(state));renderAll()}
+function money(n){return "¥"+Math.round(n).toLocaleString("ja-JP")}
+function toast(s){const el=document.getElementById("toast");el.textContent=s;el.style.display="block";setTimeout(()=>el.style.display="none",2600)}
+const titles={dashboard:["ダッシュボード","店舗運営の状況をまとめて確認"],shifts:["シフト管理","希望シフトをもとに候補を作成・調整"],attendance:["勤怠・打刻","出退勤と修正申請を確認"],payroll:["給与計算","勤怠実績に基づく給与概算"],staff:["スタッフ管理","スタッフと雇用条件のデモ管理"],staffview:["スタッフ画面プレビュー","スマートフォンでの利用イメージ"]};
+function showPage(name){document.querySelectorAll(".page").forEach(p=>p.classList.toggle("active",p.id==="page-"+name));document.querySelectorAll(".nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===name));document.getElementById("page-title").textContent=titles[name][0];document.getElementById("page-subtitle").textContent=titles[name][1];renderAll()}
+document.querySelectorAll(".nav button").forEach(b=>b.addEventListener("click",()=>showPage(b.dataset.page)));
+function renderDashboard(){
+const active=state.staff.filter(s=>s.status==="active");const clocked=active.filter(s=>s.clockIn!=="—"&&s.clockOut==="—").length;
+document.getElementById("metric-scheduled").textContent=active.length+6+"人";document.getElementById("metric-clocked").textContent=clocked+"人";document.getElementById("metric-adjust").textContent=state.adjustments.filter(a=>a.status==="未承認").length+"件";
+document.getElementById("metric-pay").textContent=money(calculatePayroll().total+900000);
+document.getElementById("shortage-list").innerHTML='<p>18:00〜20:00 <span class="pill amber">2人不足</span></p><p>20:00〜22:00 <span class="pill amber">1人不足</span></p><p>11:00〜14:00 <span class="pill green">必要人数を充足</span></p>';
+document.getElementById("todo-list").innerHTML='<p>未承認の勤怠修正 <b>'+state.adjustments.filter(a=>a.status==="未承認").length+'件</b></p><p>シフトの公開状態 <b>'+(state.published?"公開済み":"下書き")+'</b></p><p>給与計算 <b>'+(state.confirmedPayroll?"デモ確認済み":"未確認")+'</b></p>';
+document.getElementById("dashboard-staff").innerHTML=active.slice(0,5).map(s=>'<tr><td>'+s.name+'</td><td>17:00〜22:00</td><td>'+attendancePill(s)+'</td><td>'+money(s.wage)+'</td></tr>').join("");
+}
+function attendancePill(s){if(s.clockOut!=="—")return '<span class="pill green">退勤済み</span>';if(s.clockIn!=="—")return '<span class="pill green">出勤中</span>';return '<span class="pill amber">未出勤</span>'}
+const days=["月","火","水","木","金","土","日"];
+function weekDate(offset){const d=new Date(2026,9,19+offset*7);return d}
+function fmt(d){return (d.getMonth()+1)+"月"+d.getDate()+"日"}
+function shiftKey(staffId,dayIndex){return staffId+"-"+dayIndex+"-"+state.weekOffset}
+function shiftValue(s,dayIndex){const key=shiftKey(s.id,dayIndex);if(state.shifts[key]!==undefined)return state.shifts[key];const avail=(s.id+dayIndex)%4!==0;return avail?((dayIndex===5?"12:00-20:00":"17:00-22:00")):""}
+function renderShifts(){
+const start=weekDate(state.weekOffset);const end=new Date(start);end.setDate(start.getDate()+6);document.getElementById("week-label").textContent=start.getFullYear()+"年"+fmt(start)+"〜"+fmt(end);
+const active=state.staff.filter(s=>s.status==="active");let html='<div class="head">スタッフ</div>'+days.map((d,i)=>'<div class="head">'+d+'<br>'+fmt(new Date(start.getFullYear(),start.getMonth(),start.getDate()+i))+'</div>').join("");
+active.forEach(s=>{html+='<div class="person">'+s.name+'<br><small class="muted">'+s.role+'</small></div>';days.forEach((d,i)=>{const val=shiftValue(s,i);html+='<div class="shift-cell" data-shift="'+s.id+'-'+i+'">'+(val?'<div class="shift-chip" onclick="editShift('+s.id+','+i+')">'+val+'<br><small>編集 ↗</small></div>':'<span class="empty" onclick="editShift('+s.id+','+i+')" style="cursor:pointer">＋ 追加</span>')+'</div>'})});
+document.getElementById("schedule-grid").innerHTML=html;document.getElementById("assignment-count").textContent=active.reduce((n,s)=>n+days.filter((d,i)=>shiftValue(s,i)).length,0)+"枠";document.getElementById("publish-state").textContent=state.published?"公開済み":"下書き";document.getElementById("publish-shifts").textContent=state.published?"公開済み ✓":"シフトを公開";
+}
+function editShift(id,day){const s=state.staff.find(x=>x.id===id);const cur=shiftValue(s,day);const val=prompt(s.name+"さん / "+days[day]+"曜日の勤務時間（例 17:00-22:00、休みの場合は空欄）",cur);if(val===null)return;state.shifts[shiftKey(id,day)]=val.trim();state.published=false;save();toast("シフトを更新しました")}
+function renderAttendance(){
+const active=state.staff.filter(s=>s.status==="active");const clocked=active.filter(s=>s.clockIn!=="—"&&s.clockOut==="—").length;document.getElementById("att-clocked").textContent=clocked+"人";document.getElementById("att-missing").textContent=active.filter(s=>s.clockIn==="—").length+"人";document.getElementById("att-requests").textContent=state.adjustments.filter(a=>a.status==="未承認").length+"件";document.getElementById("att-hours").textContent=(clocked*4.5).toFixed(1)+"時間";
+document.getElementById("attendance-table").innerHTML=active.map(s=>'<tr><td>'+s.name+'</td><td>'+s.clockIn+'</td><td>'+s.break+'</td><td>'+s.clockOut+'</td><td>'+attendancePill(s)+'</td><td><button class="btn secondary small" onclick="demoPunch('+s.id+')">打刻を操作</button></td></tr>').join("");
+document.getElementById("adjustment-table").innerHTML=state.adjustments.map(a=>'<tr><td>'+a.name+'</td><td>'+a.request+'</td><td>'+a.reason+'</td><td><span class="pill '+(a.status==="未承認"?"amber":"green")+'">'+a.status+'</span></td><td>'+(a.status==="未承認"?'<button class="btn small" onclick="resolveAdjustment('+a.id+',true)">承認</button> <button class="btn secondary small" onclick="resolveAdjustment('+a.id+',false)">却下</button>':'—')+'</td></tr>').join("")||'<tr><td colspan="5" class="empty-state">修正申請はありません</td></tr>';
+document.getElementById("mobile-clock-state").textContent="デモ状態："+(state.staff[0].clockIn==="—"?"未出勤":state.staff[0].clockOut!=="—"?"退勤済み":"出勤中");
+}
+function demoPunch(id){const s=state.staff.find(x=>x.id===id);const choice=prompt(s.name+"さんの操作を選択してください：\n1 = 出勤\n2 = 休憩開始/終了\n3 = 退勤","1");if(!choice)return;const now=new Date().toLocaleTimeString("ja-JP",{hour:"2-digit",minute:"2-digit",hour12:false});if(choice==="1"){s.clockIn=now;s.clockOut="—";s.break="未開始"}else if(choice==="2"){s.break=s.break==="休憩中"?"終了":"休憩中"}else if(choice==="3"){if(s.clockIn==="—"){toast("先に出勤打刻を行ってください");return}s.clockOut=now;if(s.break==="休憩中")s.break="終了"}else return;save();toast("デモ打刻を更新しました")}
+function resolveAdjustment(id,ok){const a=state.adjustments.find(x=>x.id===id);a.status=ok?"承認済み":"却下";save();toast("申請を"+a.status+"にしました")}
+function addAdjustment(){const name=prompt("スタッフ名を入力してください",state.staff[0]?.name||"");if(!name)return;const request=prompt("修正内容を入力してください","退勤時刻の修正");if(!request)return;const reason=prompt("理由を入力してください","打刻忘れ")||"未記入";state.adjustments.push({id:Date.now(),name,request,reason,status:"未承認"});save();toast("修正申請を追加しました")}
+function calculatePayroll(){let rows=state.staff.filter(s=>s.status==="active").map((s,i)=>{const normal=[82,74,68,59,46,32][i%6]||40;const night=[8,10,4,12,3,5][i%6]||0;const base=normal*s.wage;const premium=night*s.wage*.25;return {name:s.name,wage:s.wage,normal,night,base,premium,total:base+premium}});return {rows,total:rows.reduce((n,r)=>n+r.total,0),normal:rows.reduce((n,r)=>n+r.normal,0),night:rows.reduce((n,r)=>n+r.night,0)}}
+function renderPayroll(){const p=calculatePayroll();document.getElementById("pay-total").textContent=money(p.total);document.getElementById("pay-people").textContent=p.rows.length+"人";document.getElementById("pay-normal").textContent=p.normal+"時間";document.getElementById("pay-night").textContent=p.night+"時間";document.getElementById("payroll-table").innerHTML=p.rows.map(r=>'<tr><td>'+r.name+'</td><td>'+money(r.wage)+'</td><td>'+r.normal+'h</td><td>'+r.night+'h</td><td>'+money(r.base)+'</td><td>'+money(r.premium)+'</td><td><b>'+money(r.total)+'</b></td></tr>').join("");document.getElementById("confirm-payroll").textContent=state.confirmedPayroll?"デモ確認済み ✓":"デモ給与を確認済みにする"}
+function renderStaff(){const q=document.getElementById("staff-search").value.toLowerCase();const f=document.getElementById("staff-filter").value;const rows=state.staff.filter(s=>(s.name+" "+s.role).toLowerCase().includes(q)&&(f==="all"||(f==="active"?s.status==="active":s.status!=="active")));document.getElementById("staff-table").innerHTML=rows.map(s=>'<tr><td>'+s.name+'</td><td>'+s.role+'</td><td>'+money(s.wage)+'</td><td>'+s.availability+'</td><td><span class="pill '+(s.status==="active"?"green":"amber")+'">'+(s.status==="active"?"在籍中":"休職・退職")+'</span></td><td><button class="btn secondary small" onclick="editStaff('+s.id+')">編集</button></td></tr>').join("")||'<tr><td colspan="6" class="empty-state">該当するスタッフはいません</td></tr>'}
+let editingStaffId=null;
+function editStaff(id){const s=state.staff.find(x=>x.id===id);editingStaffId=id;document.getElementById("staff-form-title").textContent="スタッフ編集： "+s.name;document.getElementById("staff-name").value=s.name;document.getElementById("staff-role").value=s.role;document.getElementById("staff-wage").value=s.wage;document.getElementById("staff-availability").value=s.availability;document.getElementById("staff-status").value=s.status;document.getElementById("staff-name").focus()}
+function clearStaffForm(){editingStaffId=null;document.getElementById("staff-form-title").textContent="スタッフ登録・編集";document.getElementById("staff-name").value="";document.getElementById("staff-role").value="ホール";document.getElementById("staff-wage").value=1200;document.getElementById("staff-availability").value="平日 17:00〜22:00";document.getElementById("staff-status").value="active"}
+function saveStaff(){const name=document.getElementById("staff-name").value.trim();const wage=Number(document.getElementById("staff-wage").value);if(!name||!Number.isFinite(wage)||wage<0){alert("氏名と有効な時給を入力してください");return}const data={name,role:document.getElementById("staff-role").value,wage,availability:document.getElementById("staff-availability").value.trim(),status:document.getElementById("staff-status").value};if(editingStaffId){Object.assign(state.staff.find(s=>s.id===editingStaffId),data)}else{state.staff.push({...data,id:state.nextId++,clockIn:"—",break:"—",clockOut:"—"})}clearStaffForm();save();toast("スタッフ情報を保存しました")}
+function exportPayroll(){const p=calculatePayroll();const lines=[["氏名","時給","通常時間","深夜時間","通常賃金","深夜割増例","概算合計"],...p.rows.map(r=>[r.name,r.wage,r.normal,r.night,Math.round(r.base),Math.round(r.premium),Math.round(r.total)])];const csv="\uFEFF"+lines.map(row=>row.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(",")).join("\r\n");const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8;"}));a.download="payroll-demo.csv";a.click();URL.revokeObjectURL(a.href)}
+function renderAll(){renderDashboard();renderShifts();renderAttendance();renderPayroll();renderStaff()}
+document.getElementById("prev-week").addEventListener("click",()=>{state.weekOffset--;state.published=false;save()});document.getElementById("next-week").addEventListener("click",()=>{state.weekOffset++;state.published=false;save()});
+document.getElementById("generate-shifts").addEventListener("click",()=>{state.staff.filter(s=>s.status==="active").forEach((s)=>days.forEach((d,i)=>{const key=shiftKey(s.id,i);if(state.shifts[key]===undefined)state.shifts[key]=shiftValue(s,i)}));state.published=false;save();toast("シフト候補を生成しました。必要人数と勤務条件を確認してください")});
+document.getElementById("publish-shifts").addEventListener("click",()=>{if(!confirm("デモ上でシフトを公開状態にしますか？"))return;state.published=true;save();toast("デモ上でシフトを公開しました")});
+document.getElementById("add-adjustment").addEventListener("click",addAdjustment);document.getElementById("recalc-payroll").addEventListener("click",()=>{renderPayroll();toast("デモ給与を再計算しました")});document.getElementById("confirm-payroll").addEventListener("click",()=>{state.confirmedPayroll=!state.confirmedPayroll;save();toast("給与のデモ確認状態を更新しました")});document.getElementById("export-payroll").addEventListener("click",exportPayroll);
+document.getElementById("add-staff").addEventListener("click",()=>{clearStaffForm();document.getElementById("staff-name").focus()});document.getElementById("save-staff").addEventListener("click",saveStaff);document.getElementById("cancel-staff").addEventListener("click",clearStaffForm);document.getElementById("staff-search").addEventListener("input",renderStaff);document.getElementById("staff-filter").addEventListener("change",renderStaff);
+document.getElementById("mobile-clock-in").addEventListener("click",()=>{const s=state.staff[0];s.clockIn=new Date().toLocaleTimeString("ja-JP",{hour:"2-digit",minute:"2-digit",hour12:false});s.clockOut="—";s.break="未開始";save();toast("デモ出勤を記録しました")});
+document.getElementById("mobile-break").addEventListener("click",()=>{const s=state.staff[0];if(s.clockIn==="—"){toast("先に出勤してください");return}s.break=s.break==="休憩中"?"終了":"休憩中";save();toast("デモ休憩状態を更新しました")});
+document.getElementById("mobile-clock-out").addEventListener("click",()=>{const s=state.staff[0];if(s.clockIn==="—"){toast("先に出勤してください");return}s.clockOut=new Date().toLocaleTimeString("ja-JP",{hour:"2-digit",minute:"2-digit",hour12:false});save();toast("デモ退勤を記録しました")});
+renderAll();
+</script>
+</body>
+</html>
