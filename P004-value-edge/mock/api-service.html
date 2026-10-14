@@ -15,7 +15,8 @@
 <main class="wrap">
 <header class="brand"><span class="brand-mark">VE</span><div><small>VALUE EDGE · SERVICE MOCK</small><strong>株価APIサービス</strong></div></header>
 <section class="hero"><div><div class="eyebrow">J-Quants API V2</div><h1>株価データ取得</h1><p>銘柄コードと期間を指定して取得し、APIの応答を確認します。</p></div><span class="chip">独立モック</span></section>
-<div class="local-setup" id="localSetup" hidden><strong>公開ページからはAPIを直接呼び出せません</strong><p>GitHub Pagesは画面の静的配信のみのため、APIキーを保護してJ-Quants APIを呼び出す中継機能がありません。実行するには下記2ファイルを同じフォルダーに保存し、Pythonでローカルサーバーを起動してください。</p><ol><li><a href="https://raw.githubusercontent.com/hantairi1019-ui/arvo-public-mock/upstream/P004-value-edge/mock/api-service.html" download>画面ファイル api-service.html</a> と <a href="https://raw.githubusercontent.com/hantairi1019-ui/arvo-public-mock/upstream/P004-value-edge/mock/api-service-server.py" download>中継サーバー api-service-server.py</a> を同じフォルダーに保存</li><li>そのフォルダーで <code>py api-service-server.py</code> を実行</li><li><code>http://127.0.0.1:8765/</code> を開いてAPIを実行</li></ol><p class="help">APIキーはローカルサーバーからJ-Quantsへ送信され、ファイルやログには保存しません。</p></div>\n<section class="card" aria-labelledby="requestTitle">
+<div class="local-setup" id="localSetup" hidden><strong>公開ページからはAPIを直接呼び出せません</strong><p>GitHub Pagesは画面の静的配信のみのため、APIキーを保護してJ-Quants APIを呼び出す中継機能がありません。実行するには下記2ファイルを同じフォルダーに保存し、Pythonでローカルサーバーを起動してください。</p><ol><li><a href="https://raw.githubusercontent.com/hantairi1019-ui/arvo-public-mock/upstream/P004-value-edge/mock/api-service.html" download>画面ファイル api-service.html</a> と <a href="https://raw.githubusercontent.com/hantairi1019-ui/arvo-public-mock/upstream/P004-value-edge/mock/api-service-server.py" download>中継サーバー api-service-server.py</a> を同じフォルダーに保存</li><li>そのフォルダーで <code>py api-service-server.py</code> を実行</li><li><code>http://127.0.0.1:8765/</code> を開いてAPIを実行</li></ol><p class="help">APIキーはローカルサーバーからJ-Quantsへ送信され、ファイルやログには保存しません。</p></div>
+<section class="card" aria-labelledby="requestTitle">
 <div class="card-head"><div><h2 id="requestTitle">接続情報・取得条件</h2><p>ローカルサーバー経由でJ-Quants API V2の日次株価APIを呼び出します。</p></div></div>
 <div class="card-body">
 <form id="requestForm">
@@ -38,7 +39,8 @@
 <footer class="footer">VALUE EDGE API Service Mock</footer>
 </main>
 <script>
-const form=document.getElementById("requestForm"),keyInput=document.getElementById("apiKey"),runButton=document.getElementById("runButton"),statusBox=document.getElementById("status"),resultBody=document.getElementById("resultBody"),resultBadge=document.getElementById("resultBadge");\nconst localOnly=!["localhost","127.0.0.1"].includes(location.hostname);document.getElementById("localSetup").hidden=!localOnly;
+const form=document.getElementById("requestForm"),keyInput=document.getElementById("apiKey"),runButton=document.getElementById("runButton"),statusBox=document.getElementById("status"),resultBody=document.getElementById("resultBody"),resultBadge=document.getElementById("resultBadge");
+const localOnly=!["localhost","127.0.0.1"].includes(location.hostname);document.getElementById("localSetup").hidden=!localOnly;
 const isoDate=d=>{const offset=d.getTimezoneOffset();return new Date(d.getTime()-offset*60000).toISOString().slice(0,10)};
 const today=new Date(),weekAgo=new Date(today);weekAgo.setDate(today.getDate()-7);
 document.getElementById("dateFrom").value=isoDate(weekAgo);document.getElementById("dateTo").value=isoDate(today);
