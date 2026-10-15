@@ -6,7 +6,7 @@
 <title>P006 飲食店スタッフ管理 | 操作可能モック</title>
 <style>
 :root{--ink:#172033;--muted:#667085;--line:#e6eaf0;--bg:#f5f7fb;--primary:#3457d5;--nav:#172033;--green:#16794b;--amber:#a85b08;--red:#b42318;--card:#fff}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif;font-size:14px}button,input,select{font:inherit}button{cursor:pointer}.layout{min-height:100vh;display:flex}.sidebar{width:238px;background:var(--nav);color:#fff;padding:22px 14px;flex-shrink:0}.brand{font-size:19px;font-weight:800;padding:5px 10px 24px}.brand small{display:block;font-size:11px;color:#aab4c5;font-weight:500;margin-top:6px}.nav button{width:100%;border:0;border-radius:8px;background:transparent;color:#c7d0de;text-align:left;padding:12px;margin:3px 0}.nav button.active,.nav button:hover{background:#2b3850;color:#fff}.side-note{font-size:11px;line-height:1.7;color:#aab4c5;margin:30px 10px}.main{min-width:0;flex:1;padding:28px;max-width:1600px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:24px}.topbar h1{font-size:25px;margin:0}.subtitle{color:var(--muted);margin-top:6px}.store-picker{padding:10px 12px;border:1px solid var(--line);border-radius:9px;background:#fff}.page{display:none}.page.active{display:block}.grid{display:grid;gap:15px}.grid.four{grid-template-columns:repeat(4,minmax(0,1fr))}.grid.two{grid-template-columns:1.2fr .8fr}.card{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:18px;box-shadow:0 2px 5px #17203306;min-width:0}.card h2,.card h3{margin:0 0 15px;font-size:16px}.metric-label{font-size:12px;color:var(--muted)}.metric{font-size:28px;font-weight:800;margin:9px 0 5px}.metric-foot{font-size:12px;color:var(--muted)}.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:22px 0 12px}.section-head h2{font-size:17px;margin:0}.btn{border:0;background:var(--primary);color:#fff;border-radius:8px;padding:10px 13px;font-weight:700}.btn.secondary{background:#fff;border:1px solid var(--line);color:var(--ink)}.btn.soft{background:#eef2ff;color:#304bc2}.btn.danger{background:#fff0ef;color:var(--red)}.btn.small{padding:6px 9px;font-size:12px}.toolbar{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-bottom:14px}.toolbar input,.toolbar select,.field input,.field select{border:1px solid var(--line);border-radius:8px;padding:10px;background:#fff;min-width:0}.toolbar input{max-width:260px}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:11px;background:#fff}table{border-collapse:collapse;width:100%;min-width:650px}th,td{padding:12px 13px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}th{font-size:12px;color:var(--muted);font-weight:700;background:#fafbfe}tr:last-child td{border-bottom:0}.pill{display:inline-block;padding:4px 8px;border-radius:99px;background:#eef2ff;color:#344dc4;font-size:11px;font-weight:700}.pill.green{background:#e9f8ef;color:var(--green)}.pill.amber{background:#fff4e5;color:var(--amber)}.pill.red{background:#ffefee;color:var(--red)}.muted{color:var(--muted)}.notice{padding:12px 14px;background:#fff8e8;border:1px solid #f4dfb3;color:#7c4b06;border-radius:9px;line-height:1.6;margin-bottom:15px}.success{padding:10px 12px;background:#eaf8ef;color:#17653e;border-radius:8px;margin:10px 0;display:none}.schedule{display:grid;grid-template-columns:145px repeat(7,minmax(95px,1fr));min-width:820px}.schedule>div{padding:10px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-height:57px}.schedule .head{background:#f8f9fc;font-size:12px;font-weight:700;color:var(--muted)}.schedule .person{font-weight:700}.shift-cell{background:#fff}.shift-chip{border-radius:7px;background:#eaf0ff;color:#3048a8;padding:6px;font-size:12px;white-space:normal;line-height:1.4;cursor:pointer}.shift-chip:hover{outline:2px solid #aebdf8}.empty{color:#a0a7b4;font-size:12px}.mobile-preview{max-width:420px;margin:auto;background:#f8fafc;border:1px solid var(--line);border-radius:20px;padding:18px}.clock{font-size:32px;font-weight:800;margin:15px 0}.clock-btn{width:100%;padding:15px;margin:5px 0}.form-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.field label{display:block;font-size:12px;font-weight:700;color:var(--muted);margin-bottom:6px}.field input,.field select{width:100%}.field{min-width:0}.empty-state{padding:24px;text-align:center;color:var(--muted)}.footer-note{font-size:11px;line-height:1.7;color:var(--muted);margin-top:18px}.progress{height:7px;background:#edf0f5;border-radius:99px;overflow:hidden;margin-top:9px}.progress span{display:block;height:100%;background:var(--primary);width:72%}.hide{display:none!important}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP",sans-serif;font-size:14px}button,input,select{font:inherit}button{cursor:pointer}.layout{min-height:100vh;display:flex}.sidebar{width:238px;background:var(--nav);color:#fff;padding:22px 14px;flex-shrink:0}.brand{font-size:19px;font-weight:800;padding:5px 10px 24px}.brand small{display:block;font-size:11px;color:#aab4c5;font-weight:500;margin-top:6px}.nav button{width:100%;border:0;border-radius:8px;background:transparent;color:#c7d0de;text-align:left;padding:12px;margin:3px 0}.nav button.active,.nav button:hover{background:#2b3850;color:#fff}.side-note{font-size:11px;line-height:1.7;color:#aab4c5;margin:30px 10px}.main{min-width:0;flex:1;padding:28px;max-width:1600px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:24px}.topbar h1{font-size:25px;margin:0}.subtitle{color:var(--muted);margin-top:6px}.store-picker{padding:10px 12px;border:1px solid var(--line);border-radius:9px;background:#fff}.page{display:none}.page.active{display:block}.grid{display:grid;gap:15px}.grid.four{grid-template-columns:repeat(4,minmax(0,1fr))}.grid.two{grid-template-columns:1.2fr .8fr}.card{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:18px;box-shadow:0 2px 5px #17203306;min-width:0}.card h2,.card h3{margin:0 0 15px;font-size:16px}.metric-label{font-size:12px;color:var(--muted)}.metric{font-size:28px;font-weight:800;margin:9px 0 5px}.metric-foot{font-size:12px;color:var(--muted)}.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:22px 0 12px}.section-head h2{font-size:17px;margin:0}.btn{border:0;background:var(--primary);color:#fff;border-radius:8px;padding:10px 13px;font-weight:700}.btn.secondary{background:#fff;border:1px solid var(--line);color:var(--ink)}.btn.soft{background:#eef2ff;color:#304bc2}.btn.danger{background:#fff0ef;color:var(--red)}.btn.small{padding:6px 9px;font-size:12px}.toolbar{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-bottom:14px}.toolbar input,.toolbar select,.field input,.field select{border:1px solid var(--line);border-radius:8px;padding:10px;background:#fff;min-width:0}.toolbar input{max-width:260px}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:11px;background:#fff}table{border-collapse:collapse;width:100%;min-width:650px}th,td{padding:12px 13px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}th{font-size:12px;color:var(--muted);font-weight:700;background:#fafbfe}tr:last-child td{border-bottom:0}.pill{display:inline-block;padding:4px 8px;border-radius:99px;background:#eef2ff;color:#344dc4;font-size:11px;font-weight:700}.pill.green{background:#e9f8ef;color:var(--green)}.pill.amber{background:#fff4e5;color:var(--amber)}.pill.red{background:#ffefee;color:var(--red)}.muted{color:var(--muted)}.notice{padding:12px 14px;background:#fff8e8;border:1px solid #f4dfb3;color:#7c4b06;border-radius:9px;line-height:1.6;margin-bottom:15px}.success{padding:10px 12px;background:#eaf8ef;color:#17653e;border-radius:8px;margin:10px 0;display:none}.schedule{display:grid;grid-template-columns:145px repeat(7,minmax(95px,1fr));min-width:820px}.schedule>div{padding:10px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-height:57px}.schedule .head{background:#f8f9fc;font-size:12px;font-weight:700;color:var(--muted)}.schedule .person{font-weight:700}.shift-cell{background:#fff}.shift-chip{border-radius:7px;background:#eaf0ff;color:#3048a8;padding:6px;font-size:12px;white-space:normal;line-height:1.4;cursor:pointer}.shift-chip:hover{outline:2px solid #aebdf8}.empty{color:#a0a7b4;font-size:12px}.mobile-preview{max-width:420px;margin:auto;background:#f8fafc;border:1px solid var(--line);border-radius:20px;padding:18px}.clock{font-size:32px;font-weight:800;margin:15px 0}.clock-btn{width:100%;padding:15px;margin:5px 0}.form-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.field label{display:block;font-size:12px;font-weight:700;color:var(--muted);margin-bottom:6px}.field input,.field select{width:100%}.field{min-width:0}.empty-state{padding:24px;text-align:center;color:var(--muted)}.footer-note{font-size:11px;line-height:1.7;color:var(--muted);margin-top:18px}.progress{height:7px;background:#edf0f5;border-radius:99px;overflow:hidden;margin-top:9px}.progress span{display:block;height:100%;background:var(--primary);width:72%}.hide{display:none!important}.role-switch{display:flex;align-items:center;gap:8px}.role-switch label{font-size:12px;color:var(--muted);font-weight:700}.role-switch select{padding:10px;border:1px solid var(--line);border-radius:9px;background:#fff}.nav-group-label{font-size:10px;letter-spacing:.08em;color:#8996aa;padding:14px 12px 4px}.staff-bottom-nav{display:none}.role-badge{font-size:11px;font-weight:700;padding:5px 8px;border-radius:7px;background:#eef2ff;color:#304bc2}@media(max-width:720px){.topbar{flex-wrap:wrap}.role-switch{width:100%}.role-switch select{flex:1}.nav-group-label{display:none}}
 @media(max-width:1100px){.grid.four{grid-template-columns:repeat(2,minmax(0,1fr))}.grid.two{grid-template-columns:1fr}.main{padding:20px}}
 @media(max-width:720px){.layout{display:block}.sidebar{width:100%;padding:10px 12px}.brand{padding:6px 7px 10px}.brand small{display:inline;margin-left:8px}.nav{display:flex;overflow-x:auto;gap:5px}.nav button{white-space:nowrap;width:auto;min-width:max-content;padding:9px}.side-note{display:none}.main{padding:16px}.topbar{align-items:flex-start}.topbar h1{font-size:21px}.store-picker{max-width:130px}.grid.four{gap:9px}.card{padding:13px}.metric{font-size:23px}.form-grid{grid-template-columns:1fr}.section-head{align-items:flex-start;flex-direction:column}}
 </style>
@@ -15,20 +15,19 @@
 <div class="layout">
 <aside class="sidebar">
   <div class="brand">FOODSHIFT <small>P006 · STAFF PLATFORM</small></div>
-  <nav class="nav">
+  <nav class="nav" id="role-nav">
     <button class="active" data-page="dashboard">▦　ダッシュボード</button>
     <button data-page="shifts">▤　シフト管理</button>
     <button data-page="attendance">◷　勤怠・打刻</button>
     <button data-page="payroll">￥　給与計算</button>
     <button data-page="staff">♙　スタッフ管理</button>
-    <button data-page="staffview">▣　スタッフ画面プレビュー</button>
   </nav>
   <div class="side-note">デモ環境<br>サンプルデータのみ使用しています。<br>実際の認証・給与計算・テナント分離は未実装です。</div>
 </aside>
 <main class="main">
 <header class="topbar">
   <div><h1 id="page-title">ダッシュボード</h1><div class="subtitle" id="page-subtitle">店舗運営の状況をまとめて確認</div></div>
-  <select class="store-picker" id="store-picker" aria-label="店舗選択"><option>渋谷店</option><option>新宿店</option></select>
+  <div class="role-switch"><label for="role-picker">デモ利用ロール</label><select id="role-picker" aria-label="デモ利用ロール"><option value="manager">店長</option><option value="staff">アルバイト / スタッフ</option><option value="owner">テナントオーナー</option><option value="admin">SaaS運営管理者</option></select><select class="store-picker" id="store-picker" aria-label="店舗選択"><option>渋谷店</option><option>新宿店</option></select></div>
 </header>
 <div id="toast" class="success"></div>
 <section class="page active" id="page-dashboard">
@@ -102,14 +101,37 @@
   </div><div style="display:flex;gap:8px;margin-top:14px"><button class="btn" id="save-staff">保存する</button><button class="btn secondary" id="cancel-staff">クリア</button></div><div class="footer-note">実システムでは個人情報の閲覧権限、雇用条件の適用期間、変更履歴を別途実装します。</div></div>
 </section>
 <section class="page" id="page-staffview">
-  <div class="notice">スタッフ画面のプレビューです。ログインや本人確認は行いません。</div>
+  <div class="notice">スタッフ本人の利用画面（デモ）です。画面切替はロール体験用で、実際のログイン・本人確認・権限検証ではありません。</div>
   <div class="mobile-preview">
-    <div style="display:flex;justify-content:space-between;align-items:center"><b>FOODSHIFT</b><span class="pill green">渋谷店</span></div>
-    <h2 style="margin:25px 0 5px">こんにちは、スタッフさん</h2><div class="muted">今日の勤務とシフトを確認しましょう。</div>
+    <div style="display:flex;justify-content:space-between;align-items:center"><b>FOODSHIFT</b><span class="pill green" id="employee-store-badge">渋谷店</span></div>
+    <h2 style="margin:25px 0 5px">こんにちは、<span id="employee-name">佐藤 美咲</span>さん</h2><div class="muted">今日の勤務とシフトを確認しましょう。</div>
     <div class="card" style="margin-top:18px"><div class="metric-label">本日の勤務予定</div><div style="font-size:24px;font-weight:800;margin:8px 0">17:00〜22:00</div><div class="muted">ホール · 渋谷店</div><button class="btn clock-btn" id="mobile-clock-in">出勤する</button><button class="btn secondary clock-btn" id="mobile-break">休憩を開始 / 終了</button><button class="btn secondary clock-btn" id="mobile-clock-out">退勤する</button><div class="footer-note" id="mobile-clock-state">本日の打刻状態：未出勤</div></div>
-    <div class="card" style="margin-top:14px"><h3>今週の確定シフト</h3><p>火 17:00〜22:00</p><p>木 17:00〜22:00</p><p>土 12:00〜22:00</p></div>
-    <div class="card" style="margin-top:14px"><h3>今月の勤務時間</h3><div class="metric">42時間30分</div><button class="btn secondary" style="width:100%">給与明細を見る（デモ）</button></div>
+    <div class="card" style="margin-top:14px"><h3>今週の確定シフト</h3><div id="employee-week-shifts"><p>火 17:00〜22:00</p><p>木 17:00〜22:00</p><p>土 12:00〜22:00</p></div><span class="pill" id="employee-publication-state">公開済みデモ</span></div>
+    <div class="card" style="margin-top:14px"><h3>勤務可能時間の提出</h3><p class="muted">次回シフト作成に向けて、勤務できる曜日や時間を店長へ提出します。</p><div class="field"><label for="employee-availability">勤務可能時間・希望</label><input id="employee-availability" value="平日 17:00〜22:00" /></div><button class="btn" id="submit-availability" style="width:100%;margin-top:10px">希望を提出する</button><div class="footer-note" id="availability-state">現在の希望シフト：平日 17:00〜22:00</div></div>
+    <div class="card" style="margin-top:14px"><h3>勤怠・給与</h3><div class="metric" id="employee-hours">42時間30分</div><div class="muted">今月の勤務時間（デモ）</div><button class="btn secondary" id="employee-paystub" style="width:100%;margin-top:12px">給与明細を見る（デモ）</button><button class="btn secondary" id="employee-adjustment" style="width:100%;margin-top:8px">勤怠修正を申請</button></div>
   </div>
+</section>
+<section class="page" id="page-employee-shifts">
+  <div class="notice">自分のシフトのみを表示する想定です。デモ上のサンプル値です。</div>
+  <div class="card"><h2>自分のシフト</h2><div id="employee-shift-list"></div></div>
+</section>
+<section class="page" id="page-employee-attendance">
+  <div class="notice">本人の打刻履歴と修正申請を確認する画面のデモです。</div>
+  <div class="card"><h2>自分の勤怠</h2><div class="table-wrap"><table><thead><tr><th>日付</th><th>出勤</th><th>休憩</th><th>退勤</th><th>状態</th></tr></thead><tbody id="employee-attendance-list"></tbody></table></div><div class="section-head"><h2>修正申請</h2><button class="btn" id="employee-adjustment-2">修正を申請</button></div><div id="employee-adjustment-list"></div></div>
+</section>
+<section class="page" id="page-employee-payroll">
+  <div class="notice">給与明細はデモの概算表示です。実際の支払判断には使用できません。</div>
+  <div class="card"><h2>自分の給与明細（デモ）</h2><div class="grid two"><div><div class="metric-label">対象期間</div><div style="font-size:20px;font-weight:800;margin:8px 0">2026年9月分</div><div class="metric-label">概算支給額</div><div class="metric" id="employee-pay-total">¥0</div></div><div><p>通常賃金 <b id="employee-pay-base">¥0</b></p><p>深夜割増例 <b id="employee-pay-night">¥0</b></p><p class="footer-note">控除や個別の雇用条件を含まないデモ値です。</p></div></div></div>
+</section>
+<section class="page" id="page-owner">
+  <div class="notice">テナントオーナー向けの組織横断サマリーです。表示内容はデモデータであり、実際のテナント権限はありません。</div>
+  <div class="grid four"><div class="card"><div class="metric-label">管理店舗</div><div class="metric">2店舗</div><div class="metric-foot">デモ組織</div></div><div class="card"><div class="metric-label">在籍スタッフ</div><div class="metric" id="owner-staff-count">6人</div><div class="metric-foot">登録データから算出</div></div><div class="card"><div class="metric-label">未承認勤怠修正</div><div class="metric" id="owner-adjust-count">2件</div><div class="metric-foot">全店舗のデモ値</div></div><div class="card"><div class="metric-label">給与確認</div><div class="metric" id="owner-payroll-status">未確認</div><div class="metric-foot">デモ状態</div></div></div>
+  <div class="grid two" style="margin-top:15px"><div class="card"><h2>店舗サマリー</h2><div class="table-wrap"><table><thead><tr><th>店舗</th><th>スタッフ</th><th>シフト</th><th>状態</th></tr></thead><tbody><tr><td>渋谷店</td><td id="owner-shibuya-count">6人</td><td>候補あり</td><td><span class="pill green">運用中（デモ）</span></td></tr><tr><td>新宿店</td><td>サンプル</td><td>未作成</td><td><span class="pill amber">確認待ち</span></td></tr></tbody></table></div></div><div class="card"><h2>オーナーが行うこと</h2><p>・店舗・スタッフの管理状況確認</p><p>・共通設定や権限の確認</p><p>・給与計算結果の確認・確定（権限がある場合）</p><p class="footer-note">店舗やユーザーの編集、実際の給与確定はこのモックでは行いません。</p></div></div>
+</section>
+<section class="page" id="page-admin-tenants">
+  <div class="notice">SaaS運営管理者向けの管理イメージです。契約・テナント管理の実処理は未実装です。</div>
+  <div class="grid four"><div class="card"><div class="metric-label">テナント</div><div class="metric">12</div><div class="metric-foot">サンプル値</div></div><div class="card"><div class="metric-label">利用中</div><div class="metric">10</div><div class="metric-foot">サンプル値</div></div><div class="card"><div class="metric-label">トライアル</div><div class="metric">2</div><div class="metric-foot">サンプル値</div></div><div class="card"><div class="metric-label">要確認</div><div class="metric">1</div><div class="metric-foot">サンプル値</div></div></div>
+  <div class="card" style="margin-top:15px"><h2>テナント一覧（デモ）</h2><div class="table-wrap"><table><thead><tr><th>組織名</th><th>店舗数</th><th>契約状態</th><th>利用プラン</th><th>操作</th></tr></thead><tbody><tr><td>サンプル飲食グループ</td><td>2</td><td><span class="pill green">利用中</span></td><td>スタンダード</td><td><button class="btn secondary small" onclick="toast('デモ表示のみです。契約変更は行いません')">詳細</button></td></tr><tr><td>カフェサンプル株式会社</td><td>3</td><td><span class="pill amber">トライアル</span></td><td>トライアル</td><td><button class="btn secondary small" onclick="toast('デモ表示のみです。契約変更は行いません')">詳細</button></td></tr></tbody></table></div></div>
 </section>
 </main>
 </div>
@@ -127,9 +149,25 @@ let state;try{state=JSON.parse(localStorage.getItem("foodshift-demo-state"))||st
 function save(){localStorage.setItem("foodshift-demo-state",JSON.stringify(state));renderAll()}
 function money(n){return "¥"+Math.round(n).toLocaleString("ja-JP")}
 function toast(s){const el=document.getElementById("toast");el.textContent=s;el.style.display="block";setTimeout(()=>el.style.display="none",2600)}
+const rolePages={
+manager:[["dashboard","▦　ダッシュボード"],["shifts","▤　シフト管理"],["attendance","◷　勤怠・打刻"],["payroll","￥　給与計算"],["staff","♙　スタッフ管理"],["staffview","▣　スタッフ画面プレビュー"]],
+staff:[["staffview","⌂　ホーム"],["employee-shifts","▤　自分のシフト"],["employee-attendance","◷　自分の勤怠"],["employee-payroll","￥　給与明細"]],
+owner:[["owner","▦　組織ダッシュボード"],["staff","♙　スタッフ一覧"],["payroll","￥　給与確認"],["shifts","▤　店舗シフト"]],
+admin:[["admin-tenants","▦　テナント管理"]]
+};
+const roleLabels={manager:"店長",staff:"アルバイト / スタッフ",owner:"テナントオーナー",admin:"SaaS運営管理者"};
+const rolePageTitles={"employee-shifts":["自分のシフト","公開されたシフトを確認"],"employee-attendance":["自分の勤怠","打刻履歴と修正申請"],"employee-payroll":["給与明細","自分の給与概算を確認"],owner:["組織ダッシュボード","店舗と組織全体の状況"],"admin-tenants":["テナント管理","契約・利用状態の管理イメージ"]};
+function switchRole(role){
+const nav=document.getElementById("role-nav");nav.innerHTML=rolePages[role].map(([page,label],i)=>'<button data-page="'+page+'" class="'+(i===0?'active':'')+'">'+label+'</button>').join("");
+nav.querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>showPage(b.dataset.page)));
+document.querySelector(".brand small").textContent="P006 · "+roleLabels[role].toUpperCase();
+document.getElementById("store-picker").classList.toggle("hide",role==="staff"||role==="admin");
+const first=rolePages[role][0][0];showPage(first);
+}
 const titles={dashboard:["ダッシュボード","店舗運営の状況をまとめて確認"],shifts:["シフト管理","希望シフトをもとに候補を作成・調整"],attendance:["勤怠・打刻","出退勤と修正申請を確認"],payroll:["給与計算","勤怠実績に基づく給与概算"],staff:["スタッフ管理","スタッフと雇用条件のデモ管理"],staffview:["スタッフ画面プレビュー","スマートフォンでの利用イメージ"]};
-function showPage(name){document.querySelectorAll(".page").forEach(p=>p.classList.toggle("active",p.id==="page-"+name));document.querySelectorAll(".nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===name));document.getElementById("page-title").textContent=titles[name][0];document.getElementById("page-subtitle").textContent=titles[name][1];renderAll()}
+function showPage(name){document.querySelectorAll(".page").forEach(p=>p.classList.toggle("active",p.id==="page-"+name));document.querySelectorAll(".nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===name));const meta=titles[name]||rolePageTitles[name]||[name,"デモ画面"];document.getElementById("page-title").textContent=meta[0];document.getElementById("page-subtitle").textContent=meta[1];renderAll()}
 document.querySelectorAll(".nav button").forEach(b=>b.addEventListener("click",()=>showPage(b.dataset.page)));
+document.getElementById("role-picker").addEventListener("change",e=>switchRole(e.target.value));
 function renderDashboard(){
 const active=state.staff.filter(s=>s.status==="active");const clocked=active.filter(s=>s.clockIn!=="—"&&s.clockOut==="—").length;
 document.getElementById("metric-scheduled").textContent=active.length+6+"人";document.getElementById("metric-clocked").textContent=clocked+"人";document.getElementById("metric-adjust").textContent=state.adjustments.filter(a=>a.status==="未承認").length+"件";
@@ -168,7 +206,39 @@ function editStaff(id){const s=state.staff.find(x=>x.id===id);editingStaffId=id;
 function clearStaffForm(){editingStaffId=null;document.getElementById("staff-form-title").textContent="スタッフ登録・編集";document.getElementById("staff-name").value="";document.getElementById("staff-role").value="ホール";document.getElementById("staff-wage").value=1200;document.getElementById("staff-availability").value="平日 17:00〜22:00";document.getElementById("staff-status").value="active"}
 function saveStaff(){const name=document.getElementById("staff-name").value.trim();const wage=Number(document.getElementById("staff-wage").value);if(!name||!Number.isFinite(wage)||wage<0){alert("氏名と有効な時給を入力してください");return}const data={name,role:document.getElementById("staff-role").value,wage,availability:document.getElementById("staff-availability").value.trim(),status:document.getElementById("staff-status").value};if(editingStaffId){Object.assign(state.staff.find(s=>s.id===editingStaffId),data)}else{state.staff.push({...data,id:state.nextId++,clockIn:"—",break:"—",clockOut:"—"})}clearStaffForm();save();toast("スタッフ情報を保存しました")}
 function exportPayroll(){const p=calculatePayroll();const lines=[["氏名","時給","通常時間","深夜時間","通常賃金","深夜割増例","概算合計"],...p.rows.map(r=>[r.name,r.wage,r.normal,r.night,Math.round(r.base),Math.round(r.premium),Math.round(r.total)])];const csv="\uFEFF"+lines.map(row=>row.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(",")).join("\r\n");const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8;"}));a.download="payroll-demo.csv";a.click();URL.revokeObjectURL(a.href)}
-function renderAll(){renderDashboard();renderShifts();renderAttendance();renderPayroll();renderStaff()}
+function renderEmployee(){
+const s=state.staff[0]||{name:"スタッフ",availability:"未設定",clockIn:"—",break:"—",clockOut:"—",wage:0};
+document.getElementById("employee-name").textContent=s.name;
+document.getElementById("employee-availability").value=s.availability||"";
+document.getElementById("availability-state").textContent="現在の希望シフト："+(s.availability||"未設定");
+document.getElementById("employee-store-badge").textContent=document.getElementById("store-picker").value;
+document.getElementById("employee-publication-state").textContent=state.published?"公開済みデモ":"シフト未公開（デモ）";
+document.getElementById("employee-hours").textContent="42時間30分";
+const p=calculatePayroll();const row=p.rows.find(r=>r.name===s.name)||p.rows[0]||{total:0,base:0,premium:0};
+document.getElementById("employee-pay-total").textContent=money(row.total);
+document.getElementById("employee-pay-base").textContent=money(row.base);
+document.getElementById("employee-pay-night").textContent=money(row.premium);
+document.getElementById("employee-week-shifts").innerHTML=["火 17:00〜22:00","木 17:00〜22:00","土 12:00〜22:00"].map(x=>"<p>"+x+"</p>").join("");
+document.getElementById("employee-shift-list").innerHTML='<p><b>渋谷店</b>　今週のシフト（デモ）</p>'+["火 17:00〜22:00","木 17:00〜22:00","土 12:00〜22:00"].map(x=>'<div class="card" style="margin:10px 0"><b>'+x+'</b><div class="muted">ホール · 確定シフト（デモ）</div></div>').join("");
+document.getElementById("employee-attendance-list").innerHTML='<tr><td>本日</td><td>'+s.clockIn+'</td><td>'+s.break+'</td><td>'+s.clockOut+'</td><td>'+attendancePill(s)+'</td></tr>';
+const mine=state.adjustments.filter(a=>a.name===s.name);
+document.getElementById("employee-adjustment-list").innerHTML=mine.length?mine.map(a=>'<p>'+a.request+' · <span class="pill '+(a.status==="未承認"?"amber":"green")+'">'+a.status+'</span></p>').join(""):'<p class="muted">申請はありません。</p>';
+document.getElementById("mobile-clock-state").textContent="本日の打刻状態："+(s.clockIn==="—"?"未出勤":s.clockOut!=="—"?"退勤済み":"出勤中")+" · 休憩："+s.break;
+document.getElementById("owner-staff-count").textContent=state.staff.filter(x=>x.status==="active").length+"人";
+document.getElementById("owner-adjust-count").textContent=state.adjustments.filter(a=>a.status==="未承認").length+"件";
+document.getElementById("owner-payroll-status").textContent=state.confirmedPayroll?"デモ確認済み":"未確認";
+document.getElementById("owner-shibuya-count").textContent=state.staff.filter(x=>x.status==="active").length+"人";
+}
+function submitEmployeeAdjustment(){
+const s=state.staff[0];const request=prompt("修正したい内容を入力してください","退勤時刻の修正");if(!request)return;
+const reason=prompt("修正理由を入力してください","打刻忘れ")||"未記入";
+state.adjustments.push({id:Date.now(),name:s.name,request,reason,status:"未承認"});save();toast("デモの修正申請を作成しました");
+}
+document.getElementById("submit-availability").addEventListener("click",()=>{state.staff[0].availability=document.getElementById("employee-availability").value.trim()||"未設定";save();toast("希望シフトをデモ提出しました")});
+document.getElementById("employee-adjustment").addEventListener("click",submitEmployeeAdjustment);
+document.getElementById("employee-adjustment-2").addEventListener("click",submitEmployeeAdjustment);
+document.getElementById("employee-paystub").addEventListener("click",()=>showPage("employee-payroll"));
+function renderAll(){renderDashboard();renderShifts();renderAttendance();renderPayroll();renderStaff();renderEmployee()}
 document.getElementById("prev-week").addEventListener("click",()=>{state.weekOffset--;state.published=false;save()});document.getElementById("next-week").addEventListener("click",()=>{state.weekOffset++;state.published=false;save()});
 document.getElementById("generate-shifts").addEventListener("click",()=>{state.staff.filter(s=>s.status==="active").forEach((s)=>days.forEach((d,i)=>{const key=shiftKey(s.id,i);if(state.shifts[key]===undefined)state.shifts[key]=shiftValue(s,i)}));state.published=false;save();toast("シフト候補を生成しました。必要人数と勤務条件を確認してください")});
 document.getElementById("publish-shifts").addEventListener("click",()=>{if(!confirm("デモ上でシフトを公開状態にしますか？"))return;state.published=true;save();toast("デモ上でシフトを公開しました")});
