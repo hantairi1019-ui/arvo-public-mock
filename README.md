@@ -6,7 +6,7 @@ ARVOのProject画面モックを公開・デモ閲覧するためのCanonical Mo
 
 - Visibility: **Public（意図された設定。Privateへ変更しない）**
 - Canonical branch: `upstream`
-- Canonical Mock: `<Project>/<Project>/mock/` ではなく、`<Project>/mock/`
+- Canonical Mock: `<Project>/mock/`
 - Projectの要件・Governance・Contract・Interface・Capability・Knowledgeの正本は `arvo-projects` に置く。
 - モック本体は本Repositoryで作成・更新し、`arvo-projects` に重複配置しない。
 - Project文書から該当するモックファイルへリンクする。
